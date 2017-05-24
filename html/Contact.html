@@ -1,0 +1,201 @@
+<!--顶部导航显示-->
+<header>
+    <div id="container-nav">
+        <ul id="container-navs">
+            <li id="home" class="button"><span id="hpage">主页</span></li>
+            <li><small>&gt;&gt;</small><span class="liudong">联系我们</span></li>
+        </ul>
+        <span id="closeD" class="button">x</span>
+    </div>
+</header>
+
+<div id="content" style="margin-top:50px">
+
+<div id="address">
+    <h2 class="addword">很高兴聆听您的建议，期待与您促膝长谈。</h2>
+    <h3><img src="images/Email.png" width="26" height="26" style="margin-right:10px ;" alt=""><a class="email">邮箱</a>:  <span><a href="mailto:4141@163.com">4141@163.com</a></span></h3>
+    <p> <img src="images/Locate.png" width="22"  alt=""> &nbsp;<span class="adddress">地址:</span> <span class="shuang">北京朝阳区双桥地铁站</span></p>
+    <h1></h1>
+    <div>
+        <!--<span></span>安吉拉加两个蓝啊回复啦啦啦咖喱给拉了-->
+        <img src="images/014.png" alt="">
+    </div>
+    
+</div>
+<aside id="STitle">
+    <div class="lianxi">联系我们</div>
+    <p></p>
+    <div class="women">啵啦啵啦啵啦啵啦啵啦啵啦啵啦</div>
+</aside>
+
+</div>
+
+<footer class="footer" id="footnav">
+    <div id="logo">Empathink</div>
+    <ul id="nav">
+        <li class="show" id="about">关于我们</li>
+        <li class="show" id="business">业务单元 </li>
+        <li class="show" id="services">服务案例</li>
+        <li class="show" id="team">团队</li>
+        <li class="show" id="join">加入我们</li>
+        <li class="show active" id="contact">联系我们</li>
+    </ul>
+</footer>
+<div class="l-columns">
+    <div class="localizationTool" id="widget"></div>
+</div>
+<script>
+    $('#footer').css({"display":"none"})
+
+    function clickHide(){
+        $('#footnav').hide();
+        $('.l-columns').hide();
+    }
+    $('#closeD').on('click',clickHide)
+    $('#logo').on('click',clickHide)
+    
+    var h=($(window).height()-48-60-50);
+    var w=($(window).width()-1260);
+    console.log(h);
+    console.log(w);
+    $('#content').height(h);
+    $('#content').css({"margin-left":w/2});
+    
+    
+    
+    $('#content').scroll(function () {
+        var scrolld=$('#content').scrollTop()+300;
+//        console.log(scrolld);
+        $('#STitle').css('top',scrolld);
+
+    });
+
+
+    //    中英文切换
+    $('#widget').localizationTool({
+        'defaultLanguage' : 'zh_CN',
+        strings: {
+            'id:hpage': {
+                en_GB: 'Home',
+                zh_CN: '主页'
+            },
+            'class:liudong': {
+                en_GB: 'Contact us',
+                zh_CN: '联系我们'
+            },
+            'id:about': {
+                en_GB: 'About us',
+                zh_CN: '关于我们'
+            },
+            'id:business': {
+                en_GB: 'Commercian unit',
+                zh_CN: '业务单元'
+            },
+            'id:services': {
+                en_GB: 'Service Case',
+                zh_CN: '服务案例'
+            },
+            'id:team': {
+                en_GB: 'Team',
+                zh_CN: '团队'
+            },
+            'id:join': {
+                en_GB: 'Join us',
+                zh_CN: '加入我们'
+            },
+            'id:contact': {
+                en_GB: 'Contact us',
+                zh_CN: '联系我们'
+            },
+            'class:lianxi': {
+                en_GB: 'Contact us',
+                zh_CN: '联系我们'
+            },
+            'class:women': {
+                en_GB: 'didadidadida',
+                zh_CN: '啊啦啦啦啦'
+            },
+            'class:addword': {
+                en_GB: 'Nice to listen to your advice and look forward to talking to you.',
+                zh_CN: '很高兴聆听您的建议，期待与您促膝长谈。'
+            },
+            'class:email': {
+                en_GB: 'mailbox',
+                zh_CN: '邮箱'
+            },
+            'class:address': {
+                en_GB: 'address',
+                zh_CN: '地址'
+            },
+            'class:shuang': {
+                en_GB: 'Chaoyang District, Beijing Shuangqiao subway station',
+                zh_CN: '北京朝阳区双桥地铁站'
+            }
+        }
+    });
+    (function () {
+        var key;
+        var languagesObj = $('#widget').data('settings').languages;
+        for (key in languagesObj) {
+            if (languagesObj.hasOwnProperty(key)) {
+                var direction = 'ltr';
+                if (languagesObj[key].hasOwnProperty('cssDirection')) {
+                    direction = languagesObj[key].cssDirection;
+                }
+                $('.listOfLanguages').append([
+                    '<li><div class="',
+                    languagesObj[key].flag['class'],'"></div>',
+                    '<div>',
+                    key,
+                    ' - ',
+                    languagesObj[key].country,
+                    languagesObj[key].hasOwnProperty('country') ? [' (', languagesObj[key].language, ') '].join('') : languagesObj[key].language,
+                    '<div style="direction:',direction, ';" class="light">',
+                    languagesObj[key].countryTranslated,
+                    languagesObj[key].hasOwnProperty('country') ? [' (', languagesObj[key].languageTranslated, ') '].join('') : languagesObj[key].languageTranslated,
+                    '</div>'
+                ].join(''));
+            }
+        }
+    })();
+
+    //关闭按钮
+    var shut=function () {
+        // console.log('shutting');
+        $('#container-nav').stop().fadeOut(100);
+        $('#content').stop().fadeOut(500);
+        $('.show').removeClass('active');
+        $('#footer').fadeOut(500).delay(1000).fadeIn(1500);
+        onLeave();
+    };
+    $('#home').click(shut);
+    $('#logo').click(shut);
+    $('#closeD').click(shut);
+
+    //底部导航切换事件
+    var activeIndex=$('.active').index();
+    $('#nav .show').on('click',function () {
+        $('#footer').css({"display":"none"});
+
+        //导航切换
+        ($('#container-navs ').children().length>1)?$('#container-navs li:last-child').remove():'';
+
+        var title=$(this).text();
+        // $('#container-navs').append('<li><small>>> </small><span>'+title+'</span></li>');
+        // $('.liudong').html(title);
+        $('#content').scrollTop(0);
+
+
+        // 控制摄像头拉近
+
+        var currentIndex=$(this).index();
+
+        switchFocus(currentIndex);
+
+        //切换弹框内容
+        ((currentIndex!=activeIndex)&&(currentIndex!=props.index)) ? enter(title):'';
+
+        activeIndex=currentIndex;
+
+    });
+</script>

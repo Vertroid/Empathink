@@ -1,0 +1,252 @@
+<!--顶部导航显示-->
+<header>
+    <div id="container-nav">
+        <ul id="container-navs">
+            <li id="home" class="button"><span id="hpage">主页</span></li>
+            <li><small>&gt;&gt;</small><span class="liudong">服务案例</span></li>
+        </ul>
+        <span id="closeD" class="button">x</span>
+    </div>
+</header>
+
+<div id="content" style="margin-top:20px;">
+
+<article id="service">
+    <div id="client">
+        <h2><span></span><a class="users">客户</a></h2>
+
+        <div class="clientC">
+            <ul class="clients">
+                <li><img src="images/ClentLogo_01.png" alt=""></li>
+                <li><img src="images/ClentLogo_02.png" alt=""></li>
+                <li><img src="images/ClentLogo_03.png" alt=""></li>
+                <li><img src="images/ClentLogo_04.png" alt=""></li>
+                <li><img src="images/ClentLogo_05.png" alt=""></li>
+                <li><img src="images/ClentLogo_06.png" alt=""></li>
+            </ul>
+            <ul class="clientsd">
+                <li><img src="images/ClentLogo_07.png" alt=""></li>
+                <li><img src="images/ClentLogo_08.png" alt=""></li>
+                <li><img src="images/ClentLogo_09.png" alt=""></li>
+                <li><img src="images/ClentLogo_10.png" alt=""></li>
+                <li><img src="images/ClentLogo_11.png" alt=""></li>
+                <li><img src="images/ClentLogo_12.png" alt=""></li>
+            </ul>
+        </div>
+
+    </div>
+    <div style="position: relative;margin-top: 40px;width:880px;">
+        <h2 ><span></span><a class="works">工作</a></h2>
+        <div id="work">
+            <figure>
+                <h3 class="word1">小时候有犯错一次挨揍，按套路打一阵以后老爸会停下来开始对我进行思想教育，可这次我突然心生一计，想问老爸饿不饿，我去给他做饭吃，
+                    边吃边教育，酒桌上好办事嘛，结果一张嘴却说成了：你没吃饭吧？</h3>
+                <img src="images/006.png" alt="">
+                <p></p>
+            </figure>
+            <figure>
+                <h3  class="word2">小时候有犯错一次挨揍，按套路打一阵以后老爸会停下来开始对我进行思想教育，可这次我突然心生一计，想问老爸饿不饿，我去给他做饭吃，
+                    边吃边教育，酒桌上好办事嘛，结果一张嘴却说成了：你没吃饭吧？</h3>
+                <img src="images/006.png" alt="">
+                <p></p>
+            </figure>
+            <figure>
+                <h3  class="word3">小时候有犯错一次挨揍，按套路打一阵以后老爸会停下来开始对我进行思想教育，可这次我突然心生一计，想问老爸饿不饿，我去给他做饭吃，
+                    边吃边教育，酒桌上好办事嘛，结果一张嘴却说成了：你没吃饭吧？</h3>
+                <img src="images/006.png" alt="">
+                <p></p>
+             </figure>
+        </div>
+        <!--<div id="controlS">
+            <div class="showSve">展开 <span></span></div>
+            <div class="showSve">收起 <span></span></div>
+        </div>-->
+    </div>
+
+</article>
+<aside id="STitle">
+    <div class="fuwu">服务案例</div>
+    <p></p>
+    <div class="anli">啵啦啵啦啵啦啵啦啵啦啵啦啵啦</div>
+</aside>
+
+</div>
+
+<footer class="footer" id="footnav">
+    <div id="logo">Empathink</div>
+    <ul id="nav">
+        <li class="show" id="about">关于我们</li>
+        <li class="show" id="business">业务单元 </li>
+        <li class="show  active" id="services">服务案例</li>
+        <li class="show" id="team">团队</li>
+        <li class="show" id="join">加入我们</li>
+        <li class="show" id="contact">联系我们</li>
+    </ul>
+</footer>
+<div class="l-columns">
+    <div class="localizationTool" id="widget"></div>
+</div>
+<script>
+    $('#footer').css({"display":"none"})
+
+    function clickHide(){
+        $('#footnav').hide();
+        $('.l-columns').hide();
+    }
+    $('#closeD').on('click',clickHide)
+    $('#logo').on('click',clickHide)
+    
+    var h=($(window).height()-48-60-20);
+    var w=($(window).width()-1260);
+    console.log(h);
+    console.log(w);
+    $('#content').height(h);
+    $('#content').css({"margin-left":w/2});
+    
+//右侧title 固定显示
+$('#content').scroll(function () {
+    var scrolld=$('#content').scrollTop()+380;
+//        console.log(scrolld);
+    $('#STitle').css('top',scrolld);
+});
+
+//    中英文切换
+$('#widget').localizationTool({
+    'defaultLanguage' : 'zh_CN',
+    strings: {
+        'id:hpage': {
+            en_GB: 'Home',
+            zh_CN: '主页'
+        },
+        'class:liudong': {
+            en_GB: 'Service Case',
+            zh_CN: '服务网案例'
+        },
+        'id:about': {
+            en_GB: 'About us',
+            zh_CN: '关于我们'
+        },
+        'id:business': {
+            en_GB: 'Commercian unit',
+            zh_CN: '业务单元'
+        },
+        'id:services': {
+            en_GB: 'Service Case',
+            zh_CN: '服务案例'
+        },
+        'id:team': {
+            en_GB: 'Team',
+            zh_CN: '团队'
+        },
+        'id:join': {
+            en_GB: 'Join us',
+            zh_CN: '加入我们'
+        },
+        'id:contact': {
+            en_GB: 'Contact us',
+            zh_CN: '联系我们'
+        },
+        'class:users': {
+            en_GB: 'client',
+            zh_CN: '客户'
+        },
+        'class:works': {
+            en_GB: 'work',
+            zh_CN: '工作'
+        },
+        'class:word1': {
+            en_GB: 'A child has made a mistake to beat, according to routine after a while dad will stop to start my ideological education, but this time I suddenly a heart of a meter, would like to ask the father hungry hunger, I went to give him food to eat, Eating and drinking, the wine table is good things Well, ' +
+            'the results of a mouth but said: You did not eat it?',
+            zh_CN: '小时候有犯错一次挨揍，按套路打一阵以后老爸会停下来开始对我进行思想教育，可这次我突然心生一计，想问老爸饿不饿，我去给他做饭吃，' +
+            '边吃边教育，酒桌上好办事嘛，结果一张嘴却说成了：你没吃饭吧？'
+        },
+        'class:word2': {
+            en_GB: 'A child has made a mistake to beat, according to routine after a while dad will stop to start my ideological education, but this time I suddenly a heart of a meter, would like to ask the father hungry hunger, I went to give him food to eat, Eating and drinking, the wine table is good things Well, ' +
+            'the results of a mouth but said: You did not eat it?',
+            zh_CN: '如果你得罪了老板，失去的只是一份工作；如果你得罪了客户，失去的不过是一份订单；是的，世上只有一个人可以得罪：你给她脸色看，你冲她发牢骚，你大声顶撞她，甚至当 着她的面摔碗，' +
+            '她都不会记恨你，原因很简单，因为她是你的母亲。'
+        },
+        'class:word3': {
+            en_GB: 'A child has made a mistake to beat, according to routine after a while dad will stop to start my ideological education, but this time I suddenly a heart of a meter, would like to ask the father hungry hunger, I went to give him food to eat, Eating and drinking, the wine table is good things Well, ' +
+            'the results of a mouth but said: You did not eat it?',
+            zh_CN: '小时候有犯错一次挨揍，按套路打一阵以后老爸会停下来开始对我进行思想教育，可这次我突然心生一计，想问老爸饿不饿，我去给他做' +
+            '饭吃，边吃边教育，酒桌上好办事嘛，结果一张嘴却说成了：你没吃饭吧？'
+        },
+        'class:fuwu': {
+            en_GB: 'Service Case',
+            zh_CN: '服务案例'
+        },
+        'class:anli': {
+            en_GB: 'lalla',
+            zh_CN: '啦啊啦啦'
+        }
+
+    }
+});
+(function () {
+    var key;
+    var languagesObj = $('#widget').data('settings').languages;
+    for (key in languagesObj) {
+        if (languagesObj.hasOwnProperty(key)) {
+            var direction = 'ltr';
+            if (languagesObj[key].hasOwnProperty('cssDirection')) {
+                direction = languagesObj[key].cssDirection;
+            }
+            $('.listOfLanguages').append([
+                '<li><div class="',
+                languagesObj[key].flag['class'],'"></div>',
+                '<div>',
+                key,
+                ' - ',
+                languagesObj[key].country,
+                languagesObj[key].hasOwnProperty('country') ? [' (', languagesObj[key].language, ') '].join('') : languagesObj[key].language,
+                '<div style="direction:',direction, ';" class="light">',
+                languagesObj[key].countryTranslated,
+                languagesObj[key].hasOwnProperty('country') ? [' (', languagesObj[key].languageTranslated, ') '].join('') : languagesObj[key].languageTranslated,
+                '</div>'
+            ].join(''));
+        }
+    }
+})();
+
+
+//关闭按钮
+var shut=function () {
+    // console.log('shutting');
+    $('#container-nav').stop().fadeOut(100);
+    $('#content').stop().fadeOut(500);
+    $('.show').removeClass('active');
+    $('#footer').fadeOut(500).delay(1000).fadeIn(1500);
+    onLeave();
+};
+$('#home').click(shut);
+$('#logo').click(shut);
+$('#closeD').click(shut);
+
+//底部导航切换事件
+var activeIndex=$('.active').index();
+$('#nav .show').on('click',function () {
+    $('#footer').css({"display":"none"});
+
+    //导航切换
+    ($('#container-navs ').children().length>1)?$('#container-navs li:last-child').remove():'';
+
+    var title=$(this).text();
+    // $('#container-navs').append('<li><small>>> </small><span>'+title+'</span></li>');
+    // $('.liudong').html(title);
+    $('#content').scrollTop(0);
+
+
+    // 控制摄像头拉近
+
+    var currentIndex=$(this).index();
+
+    switchFocus(currentIndex);
+
+    //切换弹框内容
+    ((currentIndex!=activeIndex)&&(currentIndex!=props.index)) ? enter(title):'';
+
+    activeIndex=currentIndex;
+
+});
+</script>
