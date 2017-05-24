@@ -1,0 +1,6 @@
+# Ignore folders.
+/images/*
+
+# Others
+*.jpg
+*.png
