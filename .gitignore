@@ -1,6 +1,5 @@
 # Ignore folders.
-/images/*
+/.idea/*
+*.yml
 
 # Others
-*.jpg
-*.png
